@@ -29,6 +29,7 @@ directories/dch_directory={
 "Player": "res://characters/Player.dch"
 }
 directories/dtl_directory={
+"America_fin": "res://timelines/America_fin.dtl",
 "opening": "res://timelines/opening.dtl"
 }
 layout/style_directory={}

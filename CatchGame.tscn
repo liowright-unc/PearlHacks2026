@@ -1,15 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b72akeyj6p1wf"]
+[gd_scene load_steps=7 format=3 uid="uid://b72akeyj6p1wf"]
 
 [ext_resource type="Script" uid="uid://kuctgs6sj0oe" path="res://catch_game.gd" id="1_4fuyx"]
 [ext_resource type="Script" uid="uid://c6eiinmnjpwka" path="res://CatchGamePlayer.gd" id="1_6wbnp"]
 [ext_resource type="Texture2D" uid="uid://b6px8bs7nhbm0" path="res://assets/square.png" id="1_65fjk"]
-[ext_resource type="PackedScene" uid="uid://bnpb8l7l6o57s" path="res://falling_item.tscn" id="4_dk1ls"]
+[ext_resource type="Script" uid="uid://dy1krxmk0u26l" path="res://score.gd" id="4_dk1ls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6wbnp"]
-size = Vector2(70, 69)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fuyx"]
-size = Vector2(328, 48)
+size = Vector2(240.25, 53.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk1ls"]
 size = Vector2(1127.5, 86.5)
@@ -17,28 +14,22 @@ size = Vector2(1127.5, 86.5)
 [node name="CatchGame" type="Node2D"]
 script = ExtResource("1_4fuyx")
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Catcher" type="CharacterBody2D" parent="."]
 script = ExtResource("1_6wbnp")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(623, 488)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_65fjk")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(623, 484)
-shape = SubResource("RectangleShape2D_6wbnp")
-
-[node name="Catcher" type="Area2D" parent="."]
-
 [node name="Sprite2D" type="Sprite2D" parent="Catcher"]
-position = Vector2(629, 425)
-scale = Vector2(0.92773426, 0.13281243)
+position = Vector2(575.00006, 454)
+scale = Vector2(0.6957031, 0.14101563)
 texture = ExtResource("1_65fjk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Catcher"]
-position = Vector2(630, 423)
-shape = SubResource("RectangleShape2D_4fuyx")
+position = Vector2(574, 451)
+shape = SubResource("RectangleShape2D_6wbnp")
+
+[node name="PlayerSprite" type="Sprite2D" parent="Catcher"]
+position = Vector2(576, 515)
+scale = Vector2(0.17968751, 0.18359375)
+texture = ExtResource("1_65fjk")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -52,17 +43,42 @@ position = Vector2(589.25, 590.25)
 shape = SubResource("RectangleShape2D_dk1ls")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 65.0
+wait_time = 15.0
+one_shot = true
 autostart = true
 
-[node name="FallingItem" parent="." instance=ExtResource("4_dk1ls")]
-
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 2.0
 
 [node name="StartInst" type="Label" parent="."]
-offset_left = 489.0
-offset_top = 62.0
-offset_right = 711.0
-offset_bottom = 85.0
+offset_left = 465.0
+offset_top = 75.0
+offset_right = 687.0
+offset_bottom = 98.0
+scale = Vector2(1.5, 1.5)
 text = "Catch the falling ingredients!"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+offset_left = 546.0
+offset_top = 140.0
+offset_right = 607.0
+offset_bottom = 163.0
+script = ExtResource("4_dk1ls")
+
+[node name="Endgame" type="Button" parent="."]
+offset_left = 476.0
+offset_top = 60.0
+offset_right = 676.0
+offset_bottom = 120.0
+text = "Congratulations!"
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 556.0
+offset_top = 20.0
+offset_right = 596.0
+offset_bottom = 43.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="Endgame" to="." method="_on_endgame_pressed"]

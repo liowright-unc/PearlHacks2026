@@ -9,6 +9,7 @@ size = Vector2(361, 353)
 [node name="FallingItem" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.1, 0.1)
 script = ExtResource("1_ve5f3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
