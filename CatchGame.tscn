@@ -1,7 +1,55 @@
-[gd_scene format=3 uid="uid://b72akeyj6p1wf"]
+[gd_scene load_steps=7 format=3 uid="uid://b72akeyj6p1wf"]
+
+[ext_resource type="Script" uid="uid://kuctgs6sj0oe" path="res://catch_game.gd" id="1_4fuyx"]
+[ext_resource type="Script" uid="uid://c6eiinmnjpwka" path="res://CatchGamePlayer.gd" id="1_6wbnp"]
+[ext_resource type="Texture2D" uid="uid://b6px8bs7nhbm0" path="res://assets/square.png" id="1_65fjk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wbnp"]
+size = Vector2(70, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fuyx"]
+size = Vector2(328, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk1ls"]
+size = Vector2(1127.5, 86.5)
 
 [node name="CatchGame" type="Node2D"]
+script = ExtResource("1_4fuyx")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_6wbnp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(623, 488)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_65fjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(623, 484)
+shape = SubResource("RectangleShape2D_6wbnp")
 
 [node name="Catcher" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Catcher"]
+position = Vector2(629, 425)
+scale = Vector2(0.92773426, 0.13281243)
+texture = ExtResource("1_65fjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Catcher"]
+position = Vector2(630, 423)
+shape = SubResource("RectangleShape2D_4fuyx")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(588, 594.25)
+scale = Vector2(3.199219, 0.24902348)
+texture = ExtResource("1_65fjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(589.25, 590.25)
+shape = SubResource("RectangleShape2D_dk1ls")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 65.0
+autostart = true
