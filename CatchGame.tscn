@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b72akeyj6p1wf"]
+
+[node name="CatchGame" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+
+[node name="Catcher" type="Area2D" parent="."]
