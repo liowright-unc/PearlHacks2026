@@ -1,0 +1,52 @@
+join Player (exhale) left [mirrored="true"]
+join ChinaGuy (glad) right
+ChinaGuy: Ta-da!
+ChinaGuy: I’m so proud of you!
+Player (question): Huh?
+ChinaGuy: You’ve done great work!
+ChinaGuy (neutral): I’m proud of myself, too.
+ChinaGuy (nervous): I don’t do much teaching…
+ChinaGuy (glad): But we didn’t do too bad!
+Player (exhale): Proud… I do feel tingly.
+Player (glad): Do you want the first bite?
+ChinaGuy: Nope!
+ChinaGuy (neutral): The head chef gets first taste!
+...
+Player (exhale): Whoa...
+Player: This might be the best thing I’ve ever tasted.
+Player: You’re the best, Xusu.
+ChinaGuy (sad): Don’t make me cry!
+leave Player
+join Julienne left [mirrored="true"]
+Julienne (Passionate): Let those tears of passion fall!
+leave ChinaGuy
+join Buck (Glad) right [mirrored="true"]
+Buck: You earned them, kids.
+leave --All--
+join Player (exhale) left [mirrored="true"]
+join Pearl right
+Pearl: Gosh, it’s been fun.
+Pearl (glad): I’m really glad I got to be here.
+Pearl (neutral): I’m not totally finished with my masterpiece yet…
+Pearl: But I learned a lot.
+Pearl: And even if I didn’t…
+Pearl (glad): I still think I’d be happy.
+Pearl (neutral): Well? What do you think?
+Pearl: Are you ready to go home?
+Player: It feels so soon…
+Player (glad): But yes. I’m excited to go home and taste things for the first time again.
+[signal arg="finaltime"]
+Pearl (sad): Wait, that can’t be right…
+Pearl (glad): The real points were the friends we made along the way!
+[signal arg="friendtime"]
+[wait time="3.0" hide_text="false"]
+leave Pearl
+update Player center
+Player (exhale): Gotta love Pearl.
+Player (sad): I wouldn't have said it, but...
+Player (exhale): Buck taught me persistence…
+Player: Julienne taught me passion…
+Player: Xusu taught me pride…
+Player (glad): And Pearl taught me the joy of sharing your work with someone else.
+Player (exhale): I’m still a pretty lousy chef, actually…
+Player (glad): But I’m not so mad about that.

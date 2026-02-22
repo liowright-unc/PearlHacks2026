@@ -1,12 +1,5 @@
-extends Node
+extends Label
 
-signal finished_catchgame(score)
-signal item_caught
-var finaltime = false
-var friendtime = false
-var current_scene_num = 0
-var current_control = "opening"
-var final_score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,4 +8,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	text = "Final Score: " + str(SignalBus.final_score)

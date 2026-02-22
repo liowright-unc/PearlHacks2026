@@ -10,11 +10,11 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	
 	if SignalBus.current_scene_num == 2: #America
-		fall_speed = 250
-	if SignalBus.current_scene_num == 4: # France
 		fall_speed = 350
-	if SignalBus.current_scene_num == 7: # China
+	if SignalBus.current_scene_num == 5: # France
 		fall_speed = 450
+	if SignalBus.current_scene_num == 8: # China
+		fall_speed = 550
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://edi1g2yjs1wh"]
+[gd_scene load_steps=3 format=3 uid="uid://edi1g2yjs1wh"]
 
 [ext_resource type="Script" uid="uid://bnqmcdnic7hf5" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://baopjaxxvyvx7" path="res://final_score.gd" id="2_0xm2m"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
+
+[node name="FinalScore" type="Label" parent="."]
+offset_left = 556.0
+offset_top = 60.0
+offset_right = 596.0
+offset_bottom = 83.0
+scale = Vector2(1.5, 1.5)
+script = ExtResource("2_0xm2m")
+
+[node name="FriendshipBonus" type="Label" parent="."]
+offset_left = 556.0
+offset_top = 130.0
+offset_right = 596.0
+offset_bottom = 153.0
+scale = Vector2(1.5, 1.5)
+text = "+100"

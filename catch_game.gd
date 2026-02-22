@@ -46,7 +46,7 @@ func update_timer() -> void:
 	time_label.text = str(ceil(timer.time_left))
 		
 func score_update() -> void:
-	score += 10
+	SignalBus.final_score += 10
 	
 func _on_timer_timeout() -> void:
 	# end screen
@@ -60,9 +60,9 @@ func _on_spawn_timer_timeout() -> void:
 	new_instance.global_position = Vector2(rng.randi_range(0,screen_size.x), 0)
 	if SignalBus.current_scene_num == 2:
 		new_instance.get_child(0).get_child(0).texture = America.pick_random()
-	if SignalBus.current_scene_num == 4:
+	if SignalBus.current_scene_num == 5:
 		new_instance.get_child(0).get_child(0).texture = France.pick_random()
-	if SignalBus.current_scene_num == 7:
+	if SignalBus.current_scene_num == 8:
 		new_instance.get_child(0).get_child(0).texture = China.pick_random()
 	get_tree().current_scene.add_child(new_instance)
 	new_instance.visible = true
